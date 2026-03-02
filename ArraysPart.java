@@ -157,15 +157,131 @@
 //     }
 // }
 
+//--------Print SubArrays -----------------------------------------------------------------------------
 
-//-------------------------------------------------------------------------------------
+// import java.util.*;
 
-import java.util.*;
+// public class ArraysPart {
 
-public class ArraysPart {
+//     public static void printSubArray(int numbers[]){ 
+//         int ts=0;
+//         for(int i=0; i<numbers.length; i++){
+//             int start= i;
+//             for(int j=i; j<numbers.length; j++){
+//                 int end = j;
+//                 for(int k= start; k<=end; k++){
+//                      System.out.print(numbers[k]+ " ");
+//                 }
+//                  ts++;
+//                 System.out.println();
+//             }
+//               System.out.println();
+//         }
+//         System.out.println("total subarray: "+ts);
+//     }
+//     public static void main(String[] args) {
+//        int numbers[]={2,4,6,8,10};
+//        printSubArray(numbers);
 
-    public static void main(String[] args) {
-        
-    }
+//     }
 
-}
+// } 
+
+//----------SubArraysSum- Brute force (concept)----------------------------------------------------
+
+// import java.util.*;
+
+// public class ArraysPart {
+
+//     public static void SubArraysSum(int numbers[]) {
+//         int CurrSum = 0;
+//         int maxSum = Integer.MIN_VALUE;
+//         for (int i = 0; i < numbers.length; i++) {
+//             int start = i;
+//             for (int j = i; j < numbers.length; j++) {
+//                 int end = j;
+//                 CurrSum = 0;
+//                 for (int k = start; k <= end; k++) {
+//                     CurrSum += numbers[k];
+//                 }
+//                 System.out.println(CurrSum);
+//                 if (maxSum < CurrSum) {
+//                     maxSum = CurrSum;
+//                 }
+//             }
+//         }
+//         System.out.println("max sum : " + maxSum);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 1, -2, 6, -1, 3 };
+//         SubArraysSum(numbers);
+//     }
+// }
+
+//-------SubArrays Prefix (optimization)---------------------------------------------------------------------
+
+// import java.util.*;
+
+// public class ArraysPart {
+
+//     public static void SubArraysSum(int numbers[]) {
+//         int CurrSum = 0;
+//         int maxSum = Integer.MIN_VALUE;
+//         int prefix[] = new int[numbers.length];
+
+//         prefix[0] = numbers[0];
+//         // Calculate prefix arraysfor
+//         for (int i = 1; i < prefix.length; i++) {
+//             prefix[i] = prefix[i - 1] + numbers[i];
+
+//         }
+//         for (int i = 0; i < numbers.length; i++) {
+//             int start = i;
+//             for (int j = i; j < numbers.length; j++) {
+//                 int end = j;
+
+//                 CurrSum = start == 0 ? prefix[end] : prefix[end] - prefix[start - 1];
+
+//                 if (maxSum < CurrSum) {
+//                     maxSum = CurrSum;
+//                 }
+//             }
+//         }
+//         System.out.println("max sum is : " + maxSum);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { 1, -2, 6, -1, 3 };
+//         SubArraysSum(numbers);
+//     }
+// }
+
+//--------kadanes subarray-----------------------------------------------------------------
+
+// import java.util.*;
+
+// public class ArraysPart {
+
+//     public static void kadanes(int numbers[]) {
+//         // ms-maxSum cs-CurrSum
+//         int ms = Integer.MIN_VALUE;
+//         int cs = 0;
+
+//         for (int i = 0; i < numbers.length; i++) {
+//             cs = cs + numbers[i];
+//             if (cs < 0) {
+//                 cs = 0;
+//             }
+//             ms = Math.max(cs, ms);
+//         }
+//         System.out.println("Our max SubArrays  sum is : " + ms);
+//     }
+
+//     public static void main(String[] args) {
+//         int numbers[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
+//         kadanes(numbers);
+//     }
+// }
+
+//----------------------------------------------------------------------------------------------
