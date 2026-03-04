@@ -284,4 +284,146 @@
 //     }
 // }
 
-//----------------------------------------------------------------------------------------------
+//--------trappedrain water --------------------------------------------------------------------------------------
+
+// import java.util.*;
+
+// public class ArraysPart {
+
+//     public static int trappedRainater(int height[]) {
+//         int n = height.length;
+//         // calculate left max boundry
+//         int leftMax[] = new int[n];
+//         leftMax[0] = height[0];
+//         for (int i = 1; i < n; i++) {
+//             leftMax[i] = Math.max(height[i], leftMax[i - 1]);
+//         }
+//         // calculate right max boundry
+
+//         int rightMax[] = new int[n];
+//         rightMax[n - 1] = height[n - 1];
+//         for (int i = n - 2; i >= 0; i--) {
+//             rightMax[i] = Math.max(height[i], rightMax[i + 1]);
+//         }
+
+//         int trappedWater = 0;
+//         // loop
+//         for (int i = 0; i < n; i++) {
+//             // waterLevel= (leftmax bound,rightmax bound)
+//             int waterLevel = Math.min(leftMax[i], rightMax[i]);
+//             // trapped = waterLevel- height[i]
+//             trappedWater += waterLevel - height[i];
+//         }
+//         return trappedWater;
+
+//     }
+
+//     public static void main(String[] args) {
+//         int height[] = { 4, 2, 0, 6, 3, 2, 5 };
+//         System.out.println(trappedRainater(height));
+//     }
+// }
+
+
+//-------constraintsDuplicate check Arrays Assignment questions-----------------------------------------------------------------------------------------------------------
+
+// import java.util.*;
+
+// public class ArraysPart {
+
+//     public static boolean constraintsDuplicate(int num[]){
+//         for(int i=0; i<num.length-1; i++){
+//             for(int j=i+1; j<num.length; j++){
+//                 if (num[i]==num[j]) {
+//                     return true;
+//                 }
+//             }
+//         }
+//         return false;
+//     }
+//  public static void main(String[] args) {
+//     int num[]={1,2,3,4,6,8,9,1};
+//        System.out.println( constraintsDuplicate(num));
+
+// }
+// }
+
+//---------2. question binary seach --------------------------------------------------------------------------------
+
+// import java.util.*;
+
+// public class ArraysPart {
+//     public static int BinarySearch(int nums[],int target){
+//         int start=0;
+//         int end = nums.length-1;
+
+//         while (start <=end) {
+//             int mid = start + (end - start) / 2;
+
+//             //target Found
+
+//             if (nums[mid] == target) {
+//                 return mid;
+//             }
+//             //check it left half is sorted
+
+//             if (nums[start] <= nums[mid]) {
+//                 if (nums[start] <= target && target < nums[mid]) {
+//                     end = mid-1;
+//                 }
+//                 else{
+//                     start = mid+1;
+//                 }
+//             }
+//             else{
+//                 //otherwise right half sorted
+
+//                 if (nums[mid] < target && target <= nums[end]) {
+//                     start = mid +1;
+//                 }else{
+//                     end
+//                     = mid-1;
+//                 }
+//             }
+//         }
+//         // target is not Found  
+//         return -1;
+//     }
+
+
+// public static void main(String[] args) {
+//     int nums[]={4,5,6,7,0,1,2};
+//     System.out.println(BinarySearch(nums,0));
+//     System.out.println(BinarySearch(nums,3));
+
+// }
+
+// }
+
+//---3.buy sell stock prices-------------------------------------------------------------------------------------------
+
+
+// import java.util.*;
+
+// public class ArraysPart {
+
+//     public static int maxProfit(int prices[]){
+//          int buy=prices[0];
+//          int profit=0;
+
+//          for(int i=1; i<prices.length; i++){
+//             if (buy< prices[i]) {
+//                 profit = Math.max(prices[i]- buy, profit);
+//             }
+//             else{
+//                 buy=prices[i];
+//             }
+//          }
+//          return profit;
+//     }
+
+//  public static void main(String[] args) {
+//     int prices[]={7,1,5,3,6,4};
+//     System.out.println(maxProfit(prices));
+//  }
+// }
