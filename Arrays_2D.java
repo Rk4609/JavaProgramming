@@ -218,3 +218,39 @@
 //         System.out.println(getShortestpath(path));
 //     }
 // }
+
+//--------20.bit manuplation----------------------------------------------------------------------
+
+// import java.util.*;
+
+// public class Arrays_2D {
+//      public static void main(String[] args) {
+//         System.out.println((5<<2));
+//         System.out.println((5|2));
+//         System.out.println((5^2));
+//         System.out.println((5&2));
+
+//      }
+// }
+//------------{odd Or even}---------------------------
+
+// import java.util.*;
+
+// public class Arrays_2D {
+//     public static void oddOrEven(int n) {
+//         int bitmask = 1;
+//         if ((n & bitmask) == 0) {
+//             System.out.println("even");
+//         } else {
+//             System.out.println("odd");
+//         }
+//     }
+
+//     public static void main(String[] args) {
+
+//         oddOrEven(3);
+//         oddOrEven(7);
+//         oddOrEven(8);
+
+//     }
+// }
