@@ -216,3 +216,32 @@
 
 //     }
 // }
+//--------------------------------------------------------------------------------------------
+
+// Problem -10 {print x^N in O(logN)}{optimized}}   
+// import java.util.*;
+
+// public class RecursionBasics {
+
+//     public static int optimizedPower(int a, int n) {
+//         // /base case
+//         if (n == 0) {
+//             return 1;
+//         }
+//         int halfpower = optimizedPower(a, n / 2);
+//         int halfpowersq = halfpower * halfpower;
+
+//         // n is odd
+
+//         if (n % 2 != 0) {
+//             halfpowersq = a * halfpowersq;
+//         }
+//         return halfpowersq;
+//     }
+
+//     public static void main(String[] args) {
+//         System.out.println(optimizedPower(2, 5));
+
+//     }
+// }
+// --------------------------------------------------------------------------------------------
