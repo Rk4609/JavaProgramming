@@ -245,3 +245,120 @@
 //     }
 // }
 // --------------------------------------------------------------------------------------------
+
+//==============================================================================================
+
+// ======={RecursionBasics Part 2}======
+
+// Problem -11 {Tile problem 2*1 vertical or horizontal }}   
+// import java.util.*;
+
+// public class RecursionBasics {
+
+//     public static int tileProblem(int n) {
+//         // base case
+//         if (n == 0 || n == 1) {
+//             return 1;
+//         }
+
+//         // Work
+//         // vertical
+//         int fnm1 = tileProblem(n - 1);
+//         int fnm2 = tileProblem(n - 2);
+//         int totalWays = fnm1 + fnm2;
+//         return totalWays;
+
+//     }
+
+//     public static void main(String[] args) {
+//         System.out.println(tileProblem(3));
+
+//     }
+// }
+
+//-----------------------------------------------------------------------------------------
+
+// // Problem -12 { remove duplicate string}} 
+// import java.util.*;
+
+// public class RecursionBasics {
+
+//     public static void removeDuplicates(String str, int idx, boolean[] map, StringBuilder newStr) {
+//         // base case
+//         if (idx == str.length()) {
+//             System.out.println(newStr);
+//             return;
+//         }
+//         // Work
+//         char currChar = str.charAt(idx);
+//         if (map[currChar - 'a'] == true) {
+//             removeDuplicates(str, idx + 1, map, newStr);
+//         } else {
+//             map[currChar - 'a'] = true;
+//             removeDuplicates(str, idx + 1, map, newStr.append(currChar));
+//         }
+
+//     }
+
+//     public static void main(String[] args) {
+//         String str = "appnnacollege";
+
+//         removeDuplicates(str, 0, new boolean[26], new StringBuilder(""));
+//     }
+// }
+
+//------------------------------------------------------------------------------------
+
+// // Problem -13 {Friend pairing problem}} 
+// import java.util.*;
+
+// public class RecursionBasics {
+
+//     public static int friendPairs(int n) {
+//         // base case
+//         if (n == 1 || n == 2) {
+//             return n;
+//         }
+//         // single
+//         int fnm1 = friendPairs(n - 1);
+//         // pair
+//         int fnm2 = friendPairs(n - 2);
+//         int pairWays = (n - 1) * fnm2;
+
+//         // totalways
+//         int totalWays = fnm1 + pairWays;
+//         return totalWays;
+
+//     }
+
+//     public static void main(String[] args) {
+//         System.out.println(friendPairs(3));
+//     }
+// }
+
+//--------------------------------------------------------------------------------------
+
+// Problem -14 {print binary strings (0,1)}} 
+// import java.util.*;
+
+// public class RecursionBasics {
+
+//     public static void binaryString(int n, int lastPlace, String str) {
+//         // base case
+//         if (n == 0) {
+//             System.out.println(str);
+//             return;
+//         }
+
+//         // Work
+//         binaryString(n - 1, 0, str + "0");
+//         if (lastPlace == 0) {
+//             binaryString(n - 1, 1, str + "1");
+//         }
+
+//     }
+
+//     public static void main(String[] args) {
+//         binaryString(3, 0, "");
+//     }
+// }
