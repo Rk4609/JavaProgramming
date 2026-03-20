@@ -479,4 +479,118 @@
 //     }
 // }
 
-//------------------------------------------------------------------------------------------
+//-------{Search in rotated sorted array}-----------------------------------------------------------------------------------
+
+// import java.util.*;
+
+// public class RecursionBasics {
+
+//     public static int search(int arr[], int target) {
+//         int si = 0;
+//         int ei = arr.length - 1;
+
+//         while (si <= ei) {
+//             int mid = si + (ei - si) / 2;
+
+//             if (arr[mid] == target) {
+//                 return mid;
+//             }
+
+//             // left sorted
+//             if (arr[si] <= arr[mid]) {
+//                 if (arr[si] <= target && target < arr[mid]) {
+//                     ei = mid - 1;
+//                 } else {
+//                     si = mid + 1;
+//                 }
+//             }
+
+//             // right sorted
+//             else {
+//                 if (arr[mid] < target && target <= arr[ei]) {
+//                     si = mid + 1;
+//                 } else {
+//                     ei = mid - 1;
+//                 }
+//             }
+//         }
+//         return -1;
+//     }
+
+//     public static void main(String[] args) {
+//         int arr[] = { 4, 5, 6, 7, 0, 1, 2 };
+//         int target = 1;
+//         int idx = search(arr, target);
+//         System.out.println(idx);
+
+//     }
+// }
+
+// ------------------------------------------------------------------------------------------
+
+// --{1.Practice questions --:Apply Mergesort to sort an array of Strings.(Assume that all the characters in all the Strings are in lowercase). (EASY}
+// import java.util.*;
+
+// public class RecursionBasics {
+//     public static void printArr(String arr[]) {
+//         for (int i = 0; i < arr.length; i++) {
+//             System.out.print(arr[i] + " ");
+//         }
+//         System.out.println();
+//     }
+
+//     public static void mergeSort(String arr[], int si, int ei) {
+//         if (si >= ei) {
+//             return;
+//         }
+//         // mid
+//         int mid = si + (ei - si) / 2;
+//         // left sort
+//         mergeSort(arr, si, mid);
+//         // right sort
+//         mergeSort(arr, si + 1, ei);
+//         // merge
+//         merge(arr, si, mid, ei);
+//     }
+
+//     public static void merge(String arr[], int si, int mid, int ei) {
+//         String temp[] = new String[ei - si + 1];
+
+//         int i = si; // left pointer
+//         int j = mid + 1; // right pointer
+//         int k = 0; // temp array
+
+//         while (i <= mid && j <= ei) {
+//             if (arr[i].compareTo(arr[j]) < 0) {
+//                 temp[k] = arr[i];
+//                 i++;
+//             } else {
+//                 temp[k] = arr[j];
+//                 j++;
+//             }
+//             k++;
+//         }
+
+//         // remaining left
+//         while (i <= mid) {
+//             temp[k++] = arr[i++];
+//         }
+//         // remaining right
+//         while (j <= ei) {
+//             temp[k++] = arr[j++];
+//         }
+
+//         // copy arr to original array
+//         for (k = 0, i = si; k < temp.length; k++, i++) {
+//             arr[i] = temp[k];
+//         }
+
+//     }
+
+//     public static void main(String[] args) {
+//         String arr[] = { "sun", "earth", "mars", "mercury" };
+//         mergeSort(arr, 0, arr.length - 1);
+//         printArr(arr);
+
+//     }
+// }
